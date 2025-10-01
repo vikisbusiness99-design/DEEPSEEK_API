@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: deepseek-proxy
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: NVIDIA_API_KEY
+        sync: false
